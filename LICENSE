@@ -1,21 +1,72 @@
-MIT License
+📸 淘宝店铺首页长截图服务
 
-Copyright (c) 2026 hyedda
+一键部署到 Railway，手机端通过 iOS 快捷指令调用，自动保存完整长截图到相册。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+🚀 一键部署
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+或者手动部署：
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Fork 这个仓库
+登录 Railway.app
+点击 + New Project → Deploy from GitHub repo
+选择这个仓库
+等待部署完成（约 2-3 分钟）
+在 Settings → Networking → Generate Domain 获取域名
+
+📱 手机端使用
+在 iPhone 上创建快捷指令
+
+打开「快捷指令」App → 点击 +
+添加操作：
+「要求输入」：提示「请输入淘宝店铺ID」
+「URL」：https://你的域名.railway.app/screenshot?shopId= + 选择「要求输入」变量
+「获取 URL 内容」：方法 GET，不缓存
+「存储到相册」
+「显示通知」：截图完成
+
+
+
+使用
+打开快捷指令 → 点击「淘宝店铺截图」→ 输入店铺ID → 自动保存到相册 ✅
+⚙ 参数说明
+
+
+
+参数
+说明
+
+
+
+shopId
+淘宝店铺数字ID（必填）
+
+
+📊 效果对比
+
+
+
+方案
+懒加载处理
+截图完整性
+手机操作
+
+
+
+免费 API
+❌ 不处理
+⚠ 底部缺失
+✅ 快捷指令
+
+
+本服务
+✅ 模拟滚动
+✅ 100% 完整
+✅ 快捷指令
+
+
+📄 接口
+
+GET /screenshot?shopId=12345678 → 返回 PNG 截图
+GET /health → 健康检查
+GET / → 服务首页
+
